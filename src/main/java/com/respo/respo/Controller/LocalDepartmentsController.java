@@ -31,8 +31,8 @@ public class LocalDepartmentsController {
 	}
 	
 	@PostMapping("/insertDepartment")
-	public LocalDepartmentsEntity insertDepartment(@RequestBody LocalDepartmentsEntity user) {
-		return lserv.insertDepartment(user);
+	public LocalDepartmentsEntity insertDepartment(@RequestBody LocalDepartmentsEntity department) {
+		return lserv.insertDepartment(department);
 	}
 	
 	@GetMapping("/getAllDepartments")
