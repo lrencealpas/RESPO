@@ -15,42 +15,42 @@ public class LocalDepartmentsService {
 	@Autowired
 	LocalDepartmentsRepository lrepo;
 	
-	public LocalDepartmentsEntity insertUser(LocalDepartmentsEntity user) {
-		return lrepo.save(user);
+	public LocalDepartmentsEntity insertDepartment(LocalDepartmentsEntity department) {
+		return lrepo.save(department);
 	}
 	
-	public List<LocalDepartmentsEntity> getAllUsers() {
+	public List<LocalDepartmentsEntity> getAllDepartments() {
 		return lrepo.findAll();
 	}
 	
 	@SuppressWarnings("finally")
-	public LocalDepartmentsEntity updateUser(int DeptId, LocalDepartmentsEntity newUserDetails) {
-		LocalDepartmentsEntity user = new LocalDepartmentsEntity();
+	public LocalDepartmentsEntity updateDepartment(int DeptId, LocalDepartmentsEntity newDepartmentDetails) {
+		LocalDepartmentsEntity department = new LocalDepartmentsEntity();
 		try {
 			//search the id number of the handset that will be updated
-			user = lrepo.findById(DeptId).get();
+			department = lrepo.findById(DeptId).get();
 					
 			//update the record
-			user.setDeptName(newUserDetails.getDeptName());
-			user.setLoc(newUserDetails.getLoc());
-			user.setpNum(newUserDetails.getpNum());
+			department.setDeptName(newDepartmentDetails.getDeptName());
+			department.setLoc(newDepartmentDetails.getLoc());
+			department.setpNum(newDepartmentDetails.getpNum());
 		
 					
 		} catch(NoSuchElementException ex) {
 			throw new NoSuchElementException("Department " + DeptId + " does not exist!");
 		} finally {
-			return lrepo.save(user);
+			return lrepo.save(department);
 		}
 	}
 		
-		public String deleteUser(int DeptId) {
+		public String deleteDepartment(int DeptId) {
 			String msg = "";
 						
 			if (lrepo.findById(DeptId) != null) {
 				lrepo.deleteById(DeptId);
-				msg = "User " + DeptId + " is successfully deleted!";
+				msg = "Department " + DeptId + " is successfully deleted!";
 			} else 
-				msg = "User " + DeptId + " does not exist!";
+				msg = "Department " + DeptId + " does not exist!";
 				return msg;
 		}
 	}

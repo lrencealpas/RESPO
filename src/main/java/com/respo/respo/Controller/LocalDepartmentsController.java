@@ -30,26 +30,26 @@ public class LocalDepartmentsController {
 		return "It works";
 	}
 	
-	@PostMapping("/insertUser")
-	public LocalDepartmentsEntity insertUser(@RequestBody LocalDepartmentsEntity user) {
-		return lserv.insertUser(user);
+	@PostMapping("/insertDepartment")
+	public LocalDepartmentsEntity insertDepartment(@RequestBody LocalDepartmentsEntity user) {
+		return lserv.insertDepartment(user);
 	}
 	
-	@GetMapping("/getAllUsers")
-	public List<LocalDepartmentsEntity> getAllUsers() {
-		return lserv.getAllUsers();
+	@GetMapping("/getAllDepartments")
+	public List<LocalDepartmentsEntity> getAllDepartment() {
+		return lserv.getAllDepartments();
 	}
 	
 	//U - Update a department record
-	@PutMapping("/updateUser")
-	public LocalDepartmentsEntity updateDepartment(@RequestParam int DeptId, @RequestBody LocalDepartmentsEntity newUserDetails) {
-		return lserv.updateUser(DeptId, newUserDetails);
+	@PutMapping("/updateDepartment")
+	public LocalDepartmentsEntity updateDepartment(@RequestParam int DeptId, @RequestBody LocalDepartmentsEntity newDepartmentDetails) {
+		return lserv.updateDepartment(DeptId, newDepartmentDetails);
 	}
 				
 	//D - Delete a handset record
-	@DeleteMapping("/deleteUser/{DeptId}")
+	@DeleteMapping("/deleteDepartment/{DeptId}")
 	public String deleteDepartment(@PathVariable int DeptId) {
-		return lserv.deleteUser(DeptId);
+		return lserv.deleteDepartment(DeptId);
 	}
 }
 	

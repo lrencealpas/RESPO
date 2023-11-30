@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class LocalDepartmentsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int DeptID;
+	private int DeptId;
 	@Column(name="DepartmentName")
 	private String DeptName;
 	@Column(name="Location")
@@ -22,20 +22,20 @@ public class LocalDepartmentsEntity {
 	
 	public LocalDepartmentsEntity() {}
 
-	public LocalDepartmentsEntity(int deptID, String deptName, String loc, String pNum) {
+	public LocalDepartmentsEntity(int deptId, String deptName, String loc, String pNum) {
 		super();
-		DeptID = deptID;
+		DeptId = deptId;
 		DeptName = deptName;
 		Loc = loc;
 		this.pNum = pNum;
 	}
 
 	public int getDeptID() {
-		return DeptID;
+		return DeptId;
 	}
 
 	public void setDeptID(int deptID) {
-		DeptID = deptID;
+		DeptId = deptID;
 	}
 
 	public String getDeptName() {
