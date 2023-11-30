@@ -20,6 +20,8 @@ public class RespoEntity {
 	private String lName;
 	@Column(name = "pNum")
 	private String pNum;
+	@Column(name = "gender")
+	private String gender;
 	@Column(name = "eMail")
 	private String eMail;
 	@Column(name = "pWord")
@@ -27,12 +29,13 @@ public class RespoEntity {
 	
 	public RespoEntity() {}
 
-	public RespoEntity(int userId, String fName, String lName, String pNum, String eMail, String pWord) {
+	public RespoEntity(int userId, String fName, String lName, String pNum, String gender, String eMail, String pWord) {
 		super();
 		this.userId = userId;
 		this.fName = fName;
 		this.lName = lName;
 		this.pNum = pNum;
+		this.gender = gender;
 		this.eMail = eMail;
 		this.pWord = pWord;
 	}
@@ -67,6 +70,14 @@ public class RespoEntity {
 
 	public void setpNum(String pNum) {
 		this.pNum = pNum;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String geteMail() {

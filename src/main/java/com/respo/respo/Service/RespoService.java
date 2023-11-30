@@ -36,6 +36,7 @@ public class RespoService {
 			user.setfName(newUserDetails.getfName());
 			user.setlName(newUserDetails.getlName());
 			user.setpNum(newUserDetails.getpNum());
+			user.setGender(newUserDetails.getGender());
 			user.seteMail(newUserDetails.geteMail());
 			user.setpWord(newUserDetails.getpWord());
 					
