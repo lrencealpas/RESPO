@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.respo.respo.Entity.RespoEntity;
-import com.respo.respo.Service.RespoService;
+import com.respo.respo.Entity.TutorialsEntity;
+import com.respo.respo.Service.TutorialsService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/tutorial")
 @CrossOrigin(origins = ("http://localhost:3000"))
-public class RespoController {
-	
+public class TutorialsController {
+
 	@Autowired
-	RespoService rserv;
+	TutorialsService tserv;
 	
 	@GetMapping("/print")
 	public String itWorks() {
@@ -31,26 +31,26 @@ public class RespoController {
 	}
 	
 	//Create
-	@PostMapping("/insertUser")
-	public RespoEntity insertUser(@RequestBody RespoEntity user) {
-		return rserv.insertUser(user);
+	@PostMapping("/insertTutorial")
+	public TutorialsEntity inserTutorial(@RequestBody TutorialsEntity tutorial) {
+		return tserv.insertTutorial(tutorial);
 	}
 	
 	//Read
-	@GetMapping("/getAllUsers")
-	public List<RespoEntity> getAllUsers() {
-		return rserv.getAllUsers();
+	@GetMapping("/getAllTutorials")
+	public List<TutorialsEntity> getAllTutorials() {
+		return tserv.getAllTutorials();
 	}
 	
-	//U - Update a user record
+	//U - Update a tutorial record
 	@PutMapping("/updateUser")
-	public RespoEntity updateUser(@RequestParam int userId, @RequestBody RespoEntity newUserDetails) {
-		return rserv.updateUser(userId, newUserDetails);
+	public TutorialsEntity updateTutorial(@RequestParam int videoId, @RequestBody TutorialsEntity newTutorialDetails) {
+		return tserv.updateTutorial(videoId, newTutorialDetails);
 	}
-				
-	//D - Delete a user record
-	@DeleteMapping("/deleteUser/{userId}")
-	public String deleteHandset(@PathVariable int userId) {
-		return rserv.deleteUser(userId);
+					
+	//D - Delete a tutorial record
+	@DeleteMapping("/deleteTutorial/{videoId}")
+	public String deleteTutorial(@PathVariable int videoId) {
+		return tserv.deleteTutorial(videoId);
 	}
 }

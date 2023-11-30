@@ -10,14 +10,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tblDepartments")
 public class LocalDepartmentsEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int DeptId;
-	@Column(name="DepartmentName")
+	@Column(name= " DepartmentName")
 	private String DeptName;
-	@Column(name="Location")
+	@Column(name = "Location")
 	private String Loc;
-	@Column(name="ContactInformation")
+	@Column(name = "ContactInformation")
 	private String pNum;
 	
 	public LocalDepartmentsEntity() {}

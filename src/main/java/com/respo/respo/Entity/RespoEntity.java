@@ -10,18 +10,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tblUsers")
 public class RespoEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
-	@Column(name="fName")
+	@Column(name = "fName")
 	private String fName;
-	@Column(name="lName")
+	@Column(name = "lName")
 	private String lName;
-	@Column(name="pNum")
+	@Column(name = "pNum")
 	private String pNum;
-	@Column(name="eMail")
+	@Column(name = "eMail")
 	private String eMail;
-	@Column(name="pWord")
+	@Column(name = "pWord")
 	private String pWord;
 	
 	public RespoEntity() {}
