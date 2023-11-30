@@ -30,11 +30,13 @@ public class LocalDepartmentsController {
 		return "It works";
 	}
 	
+	//C - Create a department record
 	@PostMapping("/insertDepartment")
 	public LocalDepartmentsEntity insertDepartment(@RequestBody LocalDepartmentsEntity department) {
 		return lserv.insertDepartment(department);
 	}
 	
+	//R - Read department records
 	@GetMapping("/getAllDepartments")
 	public List<LocalDepartmentsEntity> getAllDepartment() {
 		return lserv.getAllDepartments();
@@ -46,7 +48,7 @@ public class LocalDepartmentsController {
 		return lserv.updateDepartment(DeptId, newDepartmentDetails);
 	}
 				
-	//D - Delete a handset record
+	//D - Delete a department record
 	@DeleteMapping("/deleteDepartment/{DeptId}")
 	public String deleteDepartment(@PathVariable int DeptId) {
 		return lserv.deleteDepartment(DeptId);

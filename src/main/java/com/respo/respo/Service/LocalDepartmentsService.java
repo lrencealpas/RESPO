@@ -15,19 +15,22 @@ public class LocalDepartmentsService {
 	@Autowired
 	LocalDepartmentsRepository lrepo;
 	
+	//Create
 	public LocalDepartmentsEntity insertDepartment(LocalDepartmentsEntity department) {
 		return lrepo.save(department);
 	}
 	
+	//Read
 	public List<LocalDepartmentsEntity> getAllDepartments() {
 		return lrepo.findAll();
 	}
 	
+	//Update
 	@SuppressWarnings("finally")
 	public LocalDepartmentsEntity updateDepartment(int DeptId, LocalDepartmentsEntity newDepartmentDetails) {
 		LocalDepartmentsEntity department = new LocalDepartmentsEntity();
 		try {
-			//search the id number of the handset that will be updated
+			//search the id number of the department that will be updated
 			department = lrepo.findById(DeptId).get();
 					
 			//update the record
@@ -42,18 +45,19 @@ public class LocalDepartmentsService {
 			return lrepo.save(department);
 		}
 	}
-		
-		public String deleteDepartment(int DeptId) {
-			String msg = "";
+	
+	//Delete
+	public String deleteDepartment(int DeptId) {
+		String msg = "";
 						
-			if (lrepo.findById(DeptId) != null) {
-				lrepo.deleteById(DeptId);
-				msg = "Department " + DeptId + " is successfully deleted!";
-			} else 
-				msg = "Department " + DeptId + " does not exist!";
-				return msg;
-		}
+		if (lrepo.findById(DeptId) != null) {
+			lrepo.deleteById(DeptId);
+			msg = "Department " + DeptId + " is successfully deleted!";
+		} else 
+			msg = "Department " + DeptId + " does not exist!";
+			return msg;
 	}
+}
 	
 	
 
