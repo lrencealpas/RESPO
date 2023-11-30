@@ -26,10 +26,12 @@ public class RespoEntity {
 	private String eMail;
 	@Column(name = "pWord")
 	private String pWord;
+	@Column(name = "is_admin")
+    private boolean isAdmin;
 	
 	public RespoEntity() {}
 
-	public RespoEntity(int userId, String fName, String lName, String pNum, String gender, String eMail, String pWord) {
+	public RespoEntity(int userId, String fName, String lName, String pNum, String gender, String eMail, String pWord, boolean isAdmin) {
 		super();
 		this.userId = userId;
 		this.fName = fName;
@@ -38,6 +40,7 @@ public class RespoEntity {
 		this.gender = gender;
 		this.eMail = eMail;
 		this.pWord = pWord;
+		this.isAdmin = isAdmin;
 	}
 
 	public int getUserId() {
@@ -94,5 +97,13 @@ public class RespoEntity {
 
 	public void setpWord(String pWord) {
 		this.pWord = pWord;
+	}
+
+	public boolean getisAdmin(){
+		return isAdmin;
+	}
+
+	public void setisAdmin(boolean isAdmin){
+		this.isAdmin = isAdmin;
 	}
 }
