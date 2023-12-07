@@ -47,13 +47,15 @@ public class TutorialsService {
 	
 	//D - delete a tutorial
 	public String deleteTutorial(int videoId) {
-		String msg = "";
-						
-		if (trepo.findById(videoId) != null) {
-			trepo.deleteById(videoId);
-			msg = "Tutorial " + videoId + " is successfully deleted!";
-		} else 
-			msg = "Tutorial " + videoId + " does not exist!";
-			return msg;
+		TutorialsEntity tutorial = trepo.findById(videoId)
+			.orElseThrow(() -> new NoSuchElementException("Tutorial " + videoId + "does not exist"));
+
+		if (tutorial.getisDeleted()) {
+			return "Tutorial #" + videoId + " is already deleted!";
+		} else {
+			tutorial.setisDeleted(true);
+			trepo.save(tutorial);
+			return "Tutorial #" + videoId + "has been deleted";
+		}
 	}
 }

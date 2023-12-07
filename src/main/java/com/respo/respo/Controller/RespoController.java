@@ -50,7 +50,7 @@ public class RespoController {
 				
 	//D - Delete a user record
 	@DeleteMapping("/deleteUser/{userId}")
-	public String deleteHandset(@PathVariable int userId) {
+	public String deleteUser(@PathVariable int userId) {
 		return rserv.deleteUser(userId);
 	}
 }

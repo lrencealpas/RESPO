@@ -14,21 +14,28 @@ public class LocalDepartmentsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int DeptId;
+
 	@Column(name= " DepartmentName")
 	private String DeptName;
+
 	@Column(name = "Location")
 	private String Loc;
+
 	@Column(name = "ContactInformation")
 	private String pNum;
+
+	@Column(name = "is_deleted")
+	private boolean isDeleted = false;
 	
 	public LocalDepartmentsEntity() {}
 
-	public LocalDepartmentsEntity(int deptId, String deptName, String loc, String pNum) {
+	public LocalDepartmentsEntity(int deptId, String deptName, String loc, String pNum, boolean isDeleted) {
 		super();
 		DeptId = deptId;
 		DeptName = deptName;
 		Loc = loc;
 		this.pNum = pNum;
+		this.isDeleted = isDeleted;
 	}
 
 	public int getDeptID() {
@@ -61,5 +68,13 @@ public class LocalDepartmentsEntity {
 
 	public void setpNum(String pNum) {
 		this.pNum = pNum;
+	}
+
+	public boolean getisDeleted(){
+		return isDeleted;
+	}
+
+	public void setisDeleted(boolean isDeleted){
+		this.isDeleted = isDeleted;
 	}
 }

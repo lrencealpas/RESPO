@@ -16,22 +16,31 @@ public class RespoEntity {
 	private int userId;
 	@Column(name = "fName")
 	private String fName;
+
 	@Column(name = "lName")
 	private String lName;
+
 	@Column(name = "pNum")
 	private String pNum;
+
 	@Column(name = "gender")
 	private String gender;
+
 	@Column(name = "eMail")
 	private String eMail;
+
 	@Column(name = "pWord")
 	private String pWord;
+
 	@Column(name = "is_admin")
     private boolean isAdmin;
+
+	@Column(name = "is_deleted")
+	private boolean isDeleted = false;
 	
 	public RespoEntity() {}
 
-	public RespoEntity(int userId, String fName, String lName, String pNum, String gender, String eMail, String pWord, boolean isAdmin) {
+	public RespoEntity(int userId, String fName, String lName, String pNum, String gender, String eMail, String pWord, boolean isAdmin, boolean isDeleted) {
 		super();
 		this.userId = userId;
 		this.fName = fName;
@@ -41,6 +50,7 @@ public class RespoEntity {
 		this.eMail = eMail;
 		this.pWord = pWord;
 		this.isAdmin = isAdmin;
+		this.isDeleted = isDeleted;
 	}
 
 	public int getUserId() {
@@ -105,5 +115,13 @@ public class RespoEntity {
 
 	public void setisAdmin(boolean isAdmin){
 		this.isAdmin = isAdmin;
+	}
+
+	public boolean getisDeleted(){
+		return isDeleted;
+	}
+
+	public void setisDeleted(boolean isDeleted){
+		this.isDeleted = isDeleted;
 	}
 }
