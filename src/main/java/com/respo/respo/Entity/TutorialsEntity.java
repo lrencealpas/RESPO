@@ -26,20 +26,16 @@ public class TutorialsEntity {
     @Column(name = "Content", columnDefinition = "LONGBLOB")
     private byte[] content; // Representing video content as byte array
 
-    @Column(name = "VideoUrl") // Add a new field for video URL
-    private String videoUrl;
-
     @Column(name = "is_deleted")
 	private boolean isDeleted = false;
 
     public TutorialsEntity() {}
 
-    public TutorialsEntity(int videoId, String title, String desc, byte[] content, String videoUrl, boolean isDeleted) {
+    public TutorialsEntity(int videoId, String title, String desc, byte[] content, boolean isDeleted) {
         this.videoId = videoId;
         this.title = title;
         this.desc = desc;
         this.content = content;
-        this.videoUrl = videoUrl;
         this.isDeleted = isDeleted;
     }
 
@@ -75,14 +71,6 @@ public class TutorialsEntity {
 
     public void setContent(byte[] content) {
         this.content = content;
-    }
-
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
     }
 
     public boolean getisDeleted(){
