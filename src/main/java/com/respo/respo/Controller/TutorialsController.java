@@ -32,20 +32,16 @@ public class TutorialsController {
     @PostMapping("/insertTutorial")
     public TutorialsEntity insertTutorial(@RequestParam("file") MultipartFile file,
                                          @RequestParam("title") String title,
-                                         @RequestParam("desc") String desc) {
+                                         @RequestParam("description") String description) {
         try {
             TutorialsEntity tutorial = new TutorialsEntity();
             tutorial.setTitle(title);
-            tutorial.setDesc(desc);
+            tutorial.setDesc(description);
 
             // Save video file in the specified directory
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(uploadDirectory + "/" + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-            // Store the URL path to access the video
-            String videoUrl = "/videos/" + file.getOriginalFilename();
-            tutorial.setVideoUrl(videoUrl);
+            // Set the content to the bytes of the video file
+            tutorial.setContent(bytes);
 
             return tserv.insertTutorial(tutorial);
         } catch (IOException e) {
@@ -53,6 +49,7 @@ public class TutorialsController {
             return null; // Or handle the exception appropriately
         }
     }
+
 
     // Read - Get all tutorials
     @GetMapping("/getAllTutorials")
