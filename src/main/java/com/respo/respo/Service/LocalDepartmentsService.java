@@ -48,14 +48,16 @@ public class LocalDepartmentsService {
 	
 	//Delete
 	public String deleteDepartment(int DeptId) {
-		String msg = "";
-						
-		if (lrepo.findById(DeptId) != null) {
-			lrepo.deleteById(DeptId);
-			msg = "Department " + DeptId + " is successfully deleted!";
-		} else 
-			msg = "Department " + DeptId + " does not exist!";
-			return msg;
+		LocalDepartmentsEntity department = lrepo.findById(DeptId)
+			.orElseThrow(() -> new NoSuchElementException("Department " + DeptId + "does not exist"));
+
+		if (department.getisDeleted()) {
+			return "Department #" + DeptId + " is already deleted!";
+		} else {
+			department.setisDeleted(true);
+			lrepo.save(department);
+			return "Department #" + DeptId + "has been deleted";
+		}
 	}
 }
 	

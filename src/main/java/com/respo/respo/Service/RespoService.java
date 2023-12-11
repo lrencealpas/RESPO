@@ -49,13 +49,15 @@ public class RespoService {
 	
 	//D - delete a user
 	public String deleteUser(int userId) {
-		String msg = "";
-					
-		if (rrepo.findById(userId) != null) {
-			rrepo.deleteById(userId);
-			msg = "User " + userId + " is successfully deleted!";
-		} else 
-			msg = "User " + userId + " does not exist!";
-			return msg;
+		RespoEntity user = rrepo.findById(userId)
+			.orElseThrow(() -> new NoSuchElementException("User " + userId + "does not exist"));
+
+		if (user.getisDeleted()) {
+			return "User #" + userId + " is already deleted!";
+		} else {
+			user.setisDeleted(true);
+			rrepo.save(user);
+			return "User #" + userId + "has been deleted";
+		}
 	}
 }

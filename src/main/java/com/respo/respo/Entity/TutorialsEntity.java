@@ -29,15 +29,18 @@ public class TutorialsEntity {
     @Column(name = "VideoUrl") // Add a new field for video URL
     private String videoUrl;
 
-    public TutorialsEntity() {
-    }
+    @Column(name = "is_deleted")
+	private boolean isDeleted = false;
 
-    public TutorialsEntity(int videoId, String title, String desc, byte[] content, String videoUrl) {
+    public TutorialsEntity() {}
+
+    public TutorialsEntity(int videoId, String title, String desc, byte[] content, String videoUrl, boolean isDeleted) {
         this.videoId = videoId;
         this.title = title;
         this.desc = desc;
         this.content = content;
         this.videoUrl = videoUrl;
+        this.isDeleted = isDeleted;
     }
 
     // Getters and setters for all fields
@@ -81,4 +84,12 @@ public class TutorialsEntity {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
+
+    public boolean getisDeleted(){
+		return isDeleted;
+	}
+
+	public void setisDeleted(boolean isDeleted){
+		this.isDeleted = isDeleted;
+	}
 }
