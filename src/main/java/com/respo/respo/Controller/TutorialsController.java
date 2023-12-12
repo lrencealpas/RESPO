@@ -17,9 +17,6 @@ public class TutorialsController {
     @Autowired
     TutorialsService tserv;
 
-    @Value("${video.upload.directory}") // Inject the directory path from application.properties
-    private String uploadDirectory;
-
     @GetMapping("/print")
     public String itWorks() {
         return "It works";
