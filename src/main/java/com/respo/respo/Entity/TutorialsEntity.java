@@ -24,7 +24,7 @@ public class TutorialsEntity {
 
     @Lob
     @Column(name = "Content", columnDefinition = "LONGBLOB")
-    private byte[] content; // Representing video content as byte array
+    private byte[] content; 
 
     @Column(name = "is_deleted")
 	private boolean isDeleted = false;
