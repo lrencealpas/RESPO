@@ -31,19 +31,19 @@ public class LocalDepartmentsEntity {
 
 	public LocalDepartmentsEntity(int deptId, String deptName, String loc, String pNum, boolean isDeleted) {
 		super();
-		DeptId = deptId;
-		DeptName = deptName;
-		Loc = loc;
+		this.DeptId = deptId;
+		this.DeptName = deptName;
+		this.Loc = loc;
 		this.pNum = pNum;
 		this.isDeleted = isDeleted;
 	}
 
-	public int getDeptID() {
+	public int getDeptId() {
 		return DeptId;
 	}
 
-	public void setDeptID(int deptID) {
-		DeptId = deptID;
+	public void setDeptId(int deptId) {
+		DeptId = deptId;
 	}
 
 	public String getDeptName() {
@@ -70,11 +70,13 @@ public class LocalDepartmentsEntity {
 		this.pNum = pNum;
 	}
 
-	public boolean getisDeleted(){
+	public boolean getisDeleted() {
 		return isDeleted;
 	}
 
-	public void setisDeleted(boolean isDeleted){
+	public void setisDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
 	}
+
+	
 }

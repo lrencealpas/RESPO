@@ -54,6 +54,3 @@ public class LocalDepartmentsController {
 		return lserv.deleteDepartment(DeptId);
 	}
 }
-	
-	
-
